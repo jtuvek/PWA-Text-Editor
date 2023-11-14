@@ -1,18 +1,24 @@
 {
   "name": "JATE",
   "version": "1.0.0",
-  "description": "",
+  "description": "Progressive Web Application (PWA) Text Editor",
   "main": "server.js",
   "scripts": {
-    "start:dev": "",
-    "start": "",
-    "server": "",
-    "build": "",
-    "install": "",
-    "client": ""
+    "start:dev": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "node server.js",
+    "server": "if-env NODE_ENV=production nodemon server.js",
+    "build": "webpack --mode production",
+    "install": "echo This script is for installing dependencies. You can customize it as needed.",
+    "client": "webpack-dev-server --open --mode development"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "PWA",
+    "text editor",
+    "IndexedDB",
+    "offline",
+    "Heroku"
+  ],
+  "author": "Your Name",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
@@ -20,6 +26,11 @@
   },
   "devDependencies": {
     "concurrently": "^5.2.0",
-    "nodemon": "^2.0.4"
+    "idb": "^7.1.1",
+    "nodemon": "^2.0.4",
+    "webpack": "^5.52.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.0.0",
+    "workbox-webpack-plugin": "^6.3.0"
   }
 }
