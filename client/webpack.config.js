@@ -19,15 +19,15 @@ module.exports = () => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: './src/index.html', // Specify your HTML template
+        template: './index.html', // Specify your HTML template
         filename: 'index.html',
         chunks: ['main'],
       }),
-      new HtmlWebpackPlugin({
-        template: './src/install.html', // Specify your install HTML template
-        filename: 'install.html',
-        chunks: ['install'],
-      }),
+      // new HtmlWebpackPlugin({
+      //   template: './install.html', // Specify your install HTML template
+      //   filename: 'install.html',
+      //   chunks: ['install'],
+      // }),
       new WebpackPwaManifest({
         name: 'JATE - JavaScript Advanced Text Editor',
         short_name: 'JATE',
@@ -43,11 +43,16 @@ module.exports = () => {
         ],
       }),
       new InjectManifest({
-        swSrc: './src/service-worker.js', // Specify your service worker file
-        swDest: 'service-worker.js',
+        swSrc: './src-sw.js', // Specify your service worker file
+        swDest: 'src-sw.js',
       }),
     ],
-
+    resolve: {
+      extensions: ['.js', '.html'], // Add '.html' to the list of extensions
+      alias: {
+        // Add any module aliases if needed
+      },
+    },
     module: {
       rules: [
         {
