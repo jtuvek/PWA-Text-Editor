@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Progressive Web Application (PWA) Text Editor",
   "main": "server.js",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
     "start:dev": "concurrently \"npm run server\" \"npm run client\"",
     "start": "node server.js",
